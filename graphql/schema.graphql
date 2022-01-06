@@ -1,0 +1,47 @@
+type Query {
+  getStores(latitude: Float, longitude: Float, keyword: String): StoreResponse
+    @cacheControl(scope: PRIVATE)
+}
+
+type StoreResponse {
+  items: [StoreItemType]
+}
+type StoreItemType {
+  id: String
+  name: String
+  instructions: String
+  distance: Float
+  isActive: Boolean
+  address: Address
+  businessHours: [Hours]
+  pickupHolidays: [PickupHolidays]
+}
+type PickupHolidays {
+  date: String
+  hourBegin: String
+  hourEnd: String
+}
+
+type Address {
+  postalCode: String
+  country: String
+  city: String
+  state: String
+  neighborhood: String
+  street: String
+  number: String
+  complement: String
+  reference: String
+  location: LocationType
+}
+
+type LocationType {
+  latitude: Float
+  longitude: Float
+}
+
+type Hours {
+  dayOfWeek: Int
+  openingTime: String
+  closingTime: String
+}

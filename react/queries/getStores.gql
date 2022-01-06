@@ -1,0 +1,37 @@
+query getStores($latitude: Float, $longitude: Float, $filterByTag: String) {
+  getStores(latitude: $latitude, longitude: $longitude, keyword: $filterByTag)
+    @context(provider: "vtex.store-locator") {
+    items {
+      distance
+      name
+      instructions
+      id
+      isActive
+      address {
+        postalCode
+        country
+        city
+        state
+        neighborhood
+        street
+        number
+        complement
+        reference
+        location {
+          latitude
+          longitude
+        }
+      }
+      pickupHolidays {
+        date
+        hourBegin
+        hourEnd
+      }
+      businessHours {
+        dayOfWeek
+        openingTime
+        closingTime
+      }
+    }
+  }
+}
