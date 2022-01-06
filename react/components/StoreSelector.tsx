@@ -55,6 +55,7 @@ const StoreSelector = ({ filteredStores, onChange }) => {
 
     return (
         <div className={`${handles['storeSelector--container']}`}>
+            <p>Provincia</p>
             <Select
                 className={handles['storeSelector--select']}
                 classNamePrefix="select"

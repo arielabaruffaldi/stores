@@ -16,6 +16,10 @@
 .select__control {
     border: 1px solid #B3B3B3;
     padding: .15rem;
-    border-radius: 2px;
+    border-radius: 2px !important;
     margin-bottom: 1rem;
+}
+
+.select__indicator-separator{
+    display: none;
 }
