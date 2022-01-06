@@ -29,6 +29,8 @@ const CSS_HANDLES = [
   'noResults',
   'listingMapContainer',
   'loadAll',
+  'state--container',
+  'state--name'
 ] as const
 
 const StoreList = ({
@@ -102,6 +104,7 @@ const StoreList = ({
   }, [ofData, ofCalled, ofLoading])
 
   const handleCenter = (center: any) => {
+    console.log("center-------", center)
     setState({
       ...state,
       center,
@@ -160,10 +163,11 @@ const StoreList = ({
         <div className={`flex-col w-30 ${handles.storesListCol}`}>
           {loading && <Spinner />}
           {!loading && Object.keys(filteredStores).length > 0 && (
-            <StoreSelector filteredStores={filteredStores} onClick={(item) => setSelected(item)} />
+            <StoreSelector filteredStores={filteredStores} onChange={(item) => setSelected(item)} />
           )}
           {!loading && selected && filteredStores[selected] && (
             <div className={`overflow-auto h-100 ${handles.storesList}`}>
+              <p className={handles['state--container']}>Resultados de búsqueda para: <span className={handles['state--name']}>{selected}</span></p>
               <Listing items={filteredStores[selected]} onChangeCenter={handleCenter} />
             </div>
           )}

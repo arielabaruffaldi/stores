@@ -1,0 +1,21 @@
+.select__menu{
+    border-radius: 0;
+}
+
+.select__input-container, .select__placeholder {
+    color: #DCDCDC;
+    font-size: 14px;
+}
+
+.select__single-value{
+    color: #7F7F7F !important;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.select__control {
+    border: 1px solid #B3B3B3;
+    padding: .15rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
