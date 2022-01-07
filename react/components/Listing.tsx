@@ -12,6 +12,7 @@ const CSS_HANDLES = [
   'addressListItem',
   'addressListItem--selected',
   'addressListFirstItem',
+  'addressListItem--dot',
   'addressStoreName',
   'addressStoreAddress',
   'addressStoreAddressGroupA',
@@ -47,20 +48,23 @@ const Listing: FC<any> = ({ items, onChangeCenter }) => {
                 handleChangeCenter(item, 12)
               }}
             >
-              <span className={`t-mini b ${handles.addressStoreName}`}>
-                {item.name}
-              </span>
-              <span className={`t-mini ${handles.addressStoreAddress}`}>
-                <span className={handles.addressItem}>
-                  {item.address.street} {item.address.number ? ` ${item.address.number},` : ''}
+              <span className={handles['addressListItem--dot']}></span>
+              <div>
+                <span className={`t-mini b ${handles.addressStoreName}`}>
+                  {item.name}
                 </span>
-                <span className={handles.addressItem}>
-                  {item.address.city ? `${item.address.city}.` : ''}
+                <span className={`t-mini ${handles.addressStoreAddress}`}>
+                  <span className={handles.addressItem}>
+                    {item.address.street} {item.address.number ? ` ${item.address.number},` : ''}
+                  </span>
+                  <span className={handles.addressItem}>
+                    {item.address.city ? `${item.address.city}.` : ''}
+                  </span>
+                  <span className={handles.addressItem}>
+                    {item.address.state ? `${item.address.state}` : ''}
+                  </span>
                 </span>
-                <span className={handles.addressItem}>
-                  {item.address.state ? `${item.address.state}` : ''}
-                </span>
-              </span>
+              </div>
               <br />
             </li>
           )

@@ -60,8 +60,6 @@ const StoreList = ({
   })
 
   const handles = useCssHandles(CSS_HANDLES)
-  console.log("long-------", long)
-  console.log("lat-------", lat)
   const loadAll = () => {
     setState({
       ...state,
@@ -104,7 +102,6 @@ const StoreList = ({
   }, [ofData, ofCalled, ofLoading])
 
   const handleCenter = (center: any) => {
-    console.log("center-------", center)
     setState({
       ...state,
       center,
@@ -133,8 +130,6 @@ const StoreList = ({
       handleCenter(center)
     }
 
-    console.log("data?.getStores---", data?.getStores)
-
     const stores =
       data?.getStores?.items.sort((a, b) => {
         if (a.distance < b.distance) {
@@ -148,15 +143,7 @@ const StoreList = ({
         return 0
       }) ?? []
 
-    console.log("Stores---", stores)
-
     const filteredStores = reducedStores(stores)
-
-    console.log("filteredStores", filteredStores)
-    console.log("selected----", selected)
-    console.log("filteredStores[selected]----", filteredStores[selected])
-
-    console.log(" googleMapsKeys?.logistics?.googleMapsKey", googleMapsKeys?.logistics?.googleMapsKey)
 
     return (
       <div className={`flex flex-row ${handles.container}`}>
@@ -186,7 +173,6 @@ const StoreList = ({
             stores.length > 0 &&
             googleMapsKeys?.logistics?.googleMapsKey && (
               <>
-                {console.log("entro aca----")}
                 <Pinpoints
                   apiKey={googleMapsKeys.logistics.googleMapsKey}
                   className={handles.listingMapContainer}

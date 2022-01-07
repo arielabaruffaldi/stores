@@ -6,6 +6,7 @@ import './styles.global.css'
 
 const CSS_HANDLES = [
     'storeSelector--container',
+    'storeSelector--title',
     'storeSelector--select',
 ]
 
@@ -55,7 +56,7 @@ const StoreSelector = ({ filteredStores, onChange }) => {
 
     return (
         <div className={`${handles['storeSelector--container']}`}>
-            <p>Provincia</p>
+            <p className={handles['storeSelector--title']}> Provincia</p>
             <Select
                 className={handles['storeSelector--select']}
                 classNamePrefix="select"
@@ -63,10 +64,7 @@ const StoreSelector = ({ filteredStores, onChange }) => {
                 name="color"
                 options={options}
                 styles={colourStyles}
-                onChange={values => {
-                    onChange(values.value)
-                    console.log("values---", values.value)
-                }}
+                onChange={values => onChange(values.value)}
             />
         </div>
 

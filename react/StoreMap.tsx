@@ -33,7 +33,6 @@ const StoreMap: FC<StoreMapProps> = ({
   zoom,
 }) => {
   const group = useStoreGroup()
-  console.log("ENTRO ACAAA")
   if (!group || !googleMapsKeys?.logistics?.googleMapsKey) {
     return null
   }
