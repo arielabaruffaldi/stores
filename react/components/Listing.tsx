@@ -19,7 +19,8 @@ const CSS_HANDLES = [
   'addressStoreAddressNumber',
   'addressStoreAddressStreet',
   'addressListLink',
-  'addressItem'
+  'addressItem',
+  'phone'
 ] as const
 
 const Listing: FC<any> = ({ items, onChangeCenter }) => {
@@ -37,6 +38,7 @@ const Listing: FC<any> = ({ items, onChangeCenter }) => {
     items.length && (
       <ul className={`list ph3 mt0 ${handles.addressList}`}>
         {items.map((item: any, i: number) => {
+          console.log("item", item)
           return (
             <li
               key={`key_${i}`}
@@ -63,6 +65,7 @@ const Listing: FC<any> = ({ items, onChangeCenter }) => {
                   <span className={handles.addressItem}>
                     {item.address.state ? `${item.address.state}` : ''}
                   </span>
+                  {item.instructions && <a className={handles.phone} href={`tel:${item.instructions}`}>{item.instructions}</a>}
                 </span>
               </div>
               <br />
