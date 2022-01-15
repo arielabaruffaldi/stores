@@ -6,6 +6,7 @@ import React, { FC, useState } from 'react'
 import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 import { useCssHandles } from 'vtex.css-handles'
+import useScreenDetect from '../hooks/useScreenDetect'
 
 const CSS_HANDLES = [
   'addressList',
@@ -27,9 +28,11 @@ const Listing: FC<any> = ({ items, onChangeCenter }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const [selected, setSelected] = useState(0)
 
+  const { isMobile } = useScreenDetect()
+
   const handleChangeCenter = (item: any, zoom: number) => {
     const { latitude, longitude } = item.address.location
-    location.hash = "#map";
+    if (isMobile) location.hash = "#map";
     onChangeCenter([longitude, latitude], zoom)
     setSelected(item.id)
   }
