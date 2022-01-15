@@ -29,7 +29,7 @@ const Listing: FC<any> = ({ items, onChangeCenter }) => {
 
   const handleChangeCenter = (item: any, zoom: number) => {
     const { latitude, longitude } = item.address.location
-
+    location.hash = "#map";
     onChangeCenter([longitude, latitude], zoom)
     setSelected(item.id)
   }

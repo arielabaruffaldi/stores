@@ -77,6 +77,9 @@ const StoreList = ({
   useEffect(() => {
     state.strikes < 4 && loadAll()
   }, [state.strikes])
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+  }, [])
 
   useEffect(() => {
     if (
@@ -167,7 +170,7 @@ const StoreList = ({
             </div>
           )}
         </div>
-        <div className={`flex-col w-70 ${handles.storesMapCol}`}>
+        <div id='map' className={`flex-col w-70 ${handles.storesMapCol}`}>
           {!loading &&
             !!data &&
             stores.length > 0 &&
