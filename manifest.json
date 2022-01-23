@@ -1,7 +1,7 @@
 {
-  "vendor": "vtex",
-  "name": "store-locator",
-  "version": "0.10.8",
+  "vendor": "street47",
+  "name": "stores",
+  "version": "0.0.1",
   "title": "Store Locator",
   "description": "Integrates with the logistics module to provide Store Locator pages",
   "builders": {
@@ -25,15 +25,6 @@
   "registries": [
     "smartcheckout"
   ],
-  "billingOptions": {
-    "type": "free",
-    "support": {
-      "url": "https://support.vtex.com/hc/requests"
-    },
-    "availableCountries": [
-      "*"
-    ]
-  },
   "policies": [
     {
       "name": "outbound-access",
