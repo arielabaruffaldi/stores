@@ -1,6 +1,6 @@
 {
   "store.storelocator": {
-    "path": "/stores",
+    "path": "/locales",
     "isSitemapEntry": true
   },
   "store.storedetail": {
